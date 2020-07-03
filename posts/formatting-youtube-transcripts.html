@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ob | Formatting YouTube Transcripts</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Formatting YouTube Transcripts">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="ortonbabb.github.io/posts/formatting-youtube-transcripts">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="ob">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="ortonbabb.github.io/posts/formatting-youtube-transcripts">
+  <meta name="twitter:title" content="Formatting YouTube Transcripts">
+  <meta name="twitter:description" content="">
+
+  
+    <meta property="og:image" content="ortonbabb.github.io/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+    <meta name="twitter:image" content="ortonbabb.github.io/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+  
+
+  <link href="ortonbabb.github.io/feed.xml" type="application/rss+xml" rel="alternate" title="ob Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-light-9857ace1fe5313f85963c3add9fd42695e6b252ff08c43aed57eef51307377d1.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-light-299fd3640ea7b0c91859ba1430f414217ff76392f50e4d04c4af6b726ea4fd78.png">
+      <link rel="stylesheet" type="text/css" href="/assets/light-bb1553a18d0f1ccfe1aabc010584c49b4277a88503216b78906ba719e30019c1.css">
+    
+
+  
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="ob">ob</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/ortonbabb" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/ortonbabb" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:ortonbabb@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+  </ul>
+</nav>
+
+
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Formatting YouTube Transcripts</h1>
+            <p></p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    May 16, 2020
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      5 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/python" title="See all posts with tag 'Python'">Python</a>
+    
+  </div>
+</div>
+          </header>
+
+          <div class="article-content">
+            <p>Sometimes it’s more convenient to read the transcript for a YouTube video, rather than watching it. In this post, I show to how to format the auto-transcription of a YouTube video using Python to resample the timestamps.</p>
+
+<p>In this example, I will use the WHO press briefings on COVID-19. The official transcript for these briefings usually comes out 2 days after the video has been published; this method was motivated by the need to create a faster way to get it to help out a relative who needed it for work.</p>
+
+<h1 id="step-1-getting-the-raw-transcript-data">Step 1. Getting the raw transcript data</h1>
+
+<p>Visit the YouTube video you want to use. For this example, I will use this video:</p>
+
+<div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/1V3AonONQ7g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+<p>By clicking the three dots next to the save playlist button, a button labelled “Open transcript” will appear. Click the button, then click and drag across the transcript to copy and paste the all text in the box. Save it in a text file called ‘transcript.txt’:</p>
+
+<h4 id="transcriptstxt">transcripts.txt</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00:00
+hello everyone and welcome to regular
+00:07
+press conference uncovered 19 here from
+00:10
+W headquarters in Geneva we apologize
+00:12
+for this delay as we have announced in
+00:17
+our media advisory we have some special
+⋮
+</code></pre></div></div>
+
+<h1 id="step-2-create-the-formatting-script-in-python">Step 2. Create the formatting script in Python</h1>
+
+<p>Use the following script ‘formatting.py’ to resample the timestamps. Note that with this method, the words will not exactly fall on the new timestamps but should be close enough to reference back to the video.</p>
+
+<h4 id="formattingpy">formatting.py</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># Import the text data as a string
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'Desktop/transcript.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf'</span><span class="p">)</span> <span class="k">as</span> <span class="n">text</span><span class="p">:</span>
+  <span class="n">transcript</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Split the string by line, then save timestamps and words in separate lists
+</span><span class="n">transcript_split</span> <span class="o">=</span> <span class="n">transcript</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">timestamps</span> <span class="o">=</span> <span class="n">transcript_split</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">transcript_split</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Convert the timestamps from strings to Python datetime objects
+</span><span class="k">def</span> <span class="nf">time_format</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+  <span class="n">minusec</span> <span class="o">=</span> <span class="n">t</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">':'</span><span class="p">)</span>
+  <span class="n">minu</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">minusec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">hour</span> <span class="o">=</span> <span class="n">minu</span> <span class="o">//</span> <span class="mi">60</span>
+  <span class="n">mins</span> <span class="o">=</span> <span class="n">minu</span> <span class="o">%</span> <span class="mi">60</span>
+  <span class="n">sec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">minusec</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">mins</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="n">sec</span><span class="p">)</span>
+
+<span class="n">timestamps_formatted</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">time_format</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">))</span>
+
+<span class="c1"># Create a pandas DataFrame with formatted timestamps as index
+</span><span class="n">transcript_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'text'</span><span class="p">:</span><span class="n">text</span><span class="p">},</span> <span class="n">index</span> <span class="o">=</span> <span class="n">timestamps_formatted</span><span class="p">)</span>
+
+<span class="c1"># Resample the the text by joining text within 3 minute blocks
+</span><span class="n">transcript_resampled</span> <span class="o">=</span> <span class="n">transcript_df</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">resample</span><span class="p">(</span><span class="s">'3T'</span><span class="p">).</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">lst</span><span class="p">:</span> <span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">lst</span><span class="p">))</span>
+
+<span class="c1"># Save the result to a new text file called 'transcripts_formatted.txt'
+</span><span class="n">output</span> <span class="o">=</span> <span class="s">""</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ts_resampled</span><span class="p">.</span><span class="n">iteritems</span><span class="p">():</span>
+  <span class="n">output</span> <span class="o">+=</span> <span class="s">f"</span><span class="si">{</span><span class="n">index</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%H:%M:%S'</span><span class="p">)</span><span class="si">}</span><span class="s">"</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="s">f"</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s">"</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"Desktop/transcript_formatted.txt"</span><span class="p">,</span><span class="s">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+  <span class="nb">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>From the terminal, you can then do <code class="highlighter-rouge">cd Desktop</code> and then <code class="highlighter-rouge">python formatting.py</code>.</p>
+
+<p>Step 3. Enjoy your neatly formatted transcript!</p>
+
+<h4 id="transcripts_formattedtxt">transcripts_formatted.txt</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00:00:00
+hello everyone and welcome to regular press conference uncovered 19 here from W headquarters in Geneva we apologize for this delay as we have announced in our media advisory we have some special guests that dr. Tetris will introduce in a minute I will just introduce our speakers here beside octet address with us today are dr. Mike Ryan dr. Maria Van Kirk Kove mr. Derrick Walton who is a legal counsel and dr. mark Murray Angeles email assistant director general access to medicines and health products I will give a floor immediately to dr. Tetris and then we will have a question-and-answer session thank you thank you Tarek good morning good afternoon and good evening today I'm really honored to be joined by President Carlos Alvarado Quesada of Costa Rica and president sebastián piñera of Chile for today's press conference or press briefing researchers are working at breakneck speed both to understand the virus and also to develop potential vaccines medicines and other technologies the access to covet 19 accelerator is uniting efforts on many fronts to ensure we have safe effective and affordable therapeutics and vaccines in the shortest time possible these tools provide additional hope of overcoming javed 19 but they will not end the pandemic if we cannot ensure equitable access to them in this extraordinary circumstances we need to unleash the full power of science to deliver innovations that are scalable usable and benefit everyone everywhere at the same time traditional market model will not deliver at the scale needed to cover the entire globe solidarity within and between countries and the private sector is essential if we're to overcome these difficult times now is the moment where leaders must come together to develop a new global access policy and an operational tool which will turn the many good intentions expressed in recent weeks into reality we're seeing some good examples where companies are coming out with solidarity approaches from open licensing and support to tech transfer via the new tech access Partnership to
+
+00:03:00
+commitment not to increase prices in times of shortages whao recognized the wide-ranging efforts and initiatives aimed at incentivizing innovation while also ensuring access for all this will be important topics next week at the World Health Assembly at the beginning of the pandemic president Alvarado asked me to set up a health Technology repository for vaccines medicines diagnostics...
+
+00:06:00
+knew about about Kovach 19 and throughout those two months there's so much knowledge and science created that it's good to benefit off of people around the world for one case yesterday I was in one University in Costa Rica in which they took some open open sort designs for medical devices and actually they improved those two with the knowledge locally developed on the treatment on copy 19 they improved those and now that University is put the improved designs also available around the world those are the kind of things that we can do now based on solidarity and understanding that this pandemic attacks the same a rich country than a poor country that a mid income country regardless or even in citizens it regardless whether you have the resources or not it attacks people all around the world in the same way so the basic idea is a call for solidarity ...
+⋮
+</code></pre></div></div>
+
+          </div>
+          <!-- <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Formatting+YouTube+Transcripts%20-%20ortonbabb.github.io/posts/formatting-youtube-transcripts" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=ortonbabb.github.io/posts/formatting-youtube-transcripts" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div> -->
+
+          
+        </article>
+        <!-- <footer class="footer scrollappear">
+  <p>
+    Hosted on Github.
+  </p>
+</footer> -->
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162096735-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-162096735-1');
+  </script>
+
+
+<script src="/assets/vendor-130c9c254effc51f3283620bc635851da7b99c20901216948f11ba72ee13317f.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-cfde13ac81ddaf4351b2e739603e2baf688d0fcc9aba613fe62bbb1c7b037fb9.js" type="text/javascript"></script>
+
+
+</body>
+</html>

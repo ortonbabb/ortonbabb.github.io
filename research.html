@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ob | Research⁠</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Research⁠">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="ortonbabb.github.io/research">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="ob">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="ortonbabb.github.io/research">
+  <meta name="twitter:title" content="Research⁠">
+  <meta name="twitter:description" content="">
+
+  
+    <meta property="og:image" content="ortonbabb.github.io/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+    <meta name="twitter:image" content="ortonbabb.github.io/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+  
+
+  <link href="ortonbabb.github.io/feed.xml" type="application/rss+xml" rel="alternate" title="ob Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-light-9857ace1fe5313f85963c3add9fd42695e6b252ff08c43aed57eef51307377d1.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-light-299fd3640ea7b0c91859ba1430f414217ff76392f50e4d04c4af6b726ea4fd78.png">
+      <link rel="stylesheet" type="text/css" href="/assets/light-bb1553a18d0f1ccfe1aabc010584c49b4277a88503216b78906ba719e30019c1.css">
+    
+
+  
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="ob">ob</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/ortonbabb" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/ortonbabb" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:ortonbabb@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+  </ul>
+</nav>
+
+
+
+        <p><br />
+A documentation of my past undergraduate research projects in (applied) mathematics and machine learning including papers, reports, and symposium presentations.</p>
+
+<p>Contents</p>
+<ul>
+  <li><a href="#SIURO" class="research-page-link">A Comparison of Machine Learning Approaches to Housing Value Estimation</a></li>
+  <li><a href="#Geometric_Flows" class="research-page-link">Isometrically reconstructing data using the Diffusion Maps Laplacian</a></li>
+  <li><a href="#Arithmetic_Dynamics" class="research-page-link">Arithmetic Dynamics of Moduli Spaces (Mason Experimental Geometry Lab Summer 2016)</a></li>
+</ul>
+
+<h1 id="a-comparison-of-machine-learning-approaches-to-housing-value-estimation"><a id="SIURO"></a>A Comparison of Machine Learning Approaches to Housing Value Estimation</h1>
+<p><br />
+<em>Abstract</em></p>
+<ul>
+  <li>Housing value estimation relies on hedonic pricing models whereby price is determined by both internal characteristics (bedrooms, bathrooms, living area, etc.) as well as external characteristics (neighboring houses, ZIP code, etc.).</li>
+  <li>While classical parametric models based on linear regression analysis have been well studied in this application, the theory of hedonic prices places no restrictions on the hedonic price functional form, and hence, more recent research has attempted to apply machine learning (ML) approaches such as K-Nearest Neighbors and Support Vector Machine Regression (SVR).</li>
+  <li>Many of these ML methods are employed on the basis of their flexibility in terms of making less assumptions on the shape or distribution of the data.</li>
+  <li>ML models are therefore used with the expectation of higher accuracy on predicting the final sale price of a house.</li>
+  <li>In this study, we consider the combination of various pre-processing procedures and candidate models on a historical data set of house sales in King County, Washington. Different measures of accuracy are considered in interpreting model performance.</li>
+  <li>The results suggest that while machine learning algorithms like SVR achieve top performance as measured by the adjusted $R^2$, classical parametric models can also achieve out-of-sample generalization nearing that of the more sophisticated ML models, with faster training times, no need for feature scaling and more easily interpreted parameters.</li>
+</ul>
+
+<p>The paper is published in <a href="https://www.siam.org/publications/siuro/volume-12">SIAM Undergraduate Research Online Vol. 12</a>. It is the result of <a href="https://sites.google.com/site/gmuextreems/previous-programs-and-materials">my participation</a> in my the National Science Foundation funded Expeditions in Training, Research, and Education for Mathematics and Statistics through Quantitative Explorations of Data (<a href="https://sites.google.com/site/gmuextreems/home">EXTREEMS-QED</a>) program at George Mason University. The results of the research was presented at the <a href="https://www.jmu.edu/mathstat/sums/_files/2017-sums-full-program-web.pdf">2017 Shenandoah Undergraduate Math and Statistics Conference</a> and the MAA Undergraduate Poster Session at the Joint Mathematics Meetings 2018 in San Diego, California.
+<br />
+<br /></p>
+<h1 id="isometrically-reconstructing-data-using-the-diffusion-maps-laplacian"><a id="Geometric_Flows"></a>Isometrically reconstructing data using the Diffusion Maps Laplacian</h1>
+<p><br />
+<em>Abstract</em></p>
+<ul>
+  <li>In topological data analysis we think of data points as having been sampled from a manifold.</li>
+  <li>We used diffusion maps to approximate the Laplace-Beltrami Operator of the underlying manifold, and thus approximate the eigenfunctions of the Laplacian.</li>
+  <li>Using a variety of numerical methods we attempted to use these eigenfunctions as a basis for isometrically reconstructing the data in a lower dimension</li>
+</ul>
+
+<p>This research was co-presented at the <a href="https://www.maa.org/sites/default/files/Programs/%28Final%29%20JMM%202019%20Student%20Poster%20Booklet.pdf">Joint Mathematics Meetings’ Mathematical Association of America’s Undergraduate Poster Session</a> with Aneesh Malhotra and received an <a href="https://www.maa.org/sites/default/files/Programs/Outstanding%20Posters%20JMM%202019_0.pdf">Outstanding Poster Award</a>. The early research was also shared with faculty and students of GMU at Mason Experimental Geometry Lab Fall Symposiums (<a href="/docs/symposiums/SymposiumFall17.pdf">2017</a>, <a href="/docs/symposiums/SymposiumFall18.pdf">2018</a>). The project was directed by <a href="http://math.gmu.edu/~berry/">Dr. Tyrus Berry</a> and other collaborators include Yemeen Ayub and Ryan Vaughn. I have done my best to faithfully document the project results in PDF form <a href="https://ortonbabb.com/docs/Isometrically_reconstructing_data_using_the_Diffusion_Maps_Laplacian.pdf">HERE</a>. All errors my own!
+<br />
+<br /></p>
+
+<h1 id="arithmetic-dynamics-of-moduli-spaces-mason-experimental-geometry-lab-summer-2016"><a id="Arithmetic_Dynamics" href="http://meglab.wdfiles.com/local--files/research%3Asummer2016/Orbits_Report_Summer_2016.pdf"></a>Arithmetic Dynamics of Moduli Spaces (Mason Experimental Geometry Lab Summer 2016)</h1>
+<p><br />
+<em>Abstract</em></p>
+<ul>
+  <li>We are studying the dynamics of the action of outer automorphism group, $Out(\mathbb{F}_2)$ on the
+character variety, $\mathfrak{X}(F_2,SL_2((\mathbb{F}_q))$ for a prime $q$.</li>
+  <li>One of the ways to understand the dynamics is looking at the growth of the maximum orbit length with the increase in prime $q$.</li>
+  <li>We analyzed the orbit growth of few outer automorphisms using Mathematica. The elements of $Out(\mathbb{F}_2)$ exhibiting a logarithmic growth rate in the maximum orbit length is particularly interesting. Using Mathematica enabled the visualization of orbits 3 in $\mathbb{F}_q$.</li>
+  <li>We were also able to identify some elements of $Out(\mathbb{F}_2)$ whose maximum orbit length is the same.</li>
+  <li>A possible future course is to determine the arithmetic ergodicity of the above action, in particular, the action of the subgroups generated by a subset of generators of $Out(\mathbb{F}_2)$.</li>
+</ul>
+
+<p><em>This research report is available via the MEGL website, <a href="http://meglab.wdfiles.com/local--files/research%3Asummer2016/Orbits_Report_Summer_2016.pdf">here</a>.</em></p>
+
+<p><br /><br /><br /><br /></p>
+
+        <!-- <footer class="footer scrollappear">
+  <p>
+    Hosted on Github.
+  </p>
+</footer> -->
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162096735-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-162096735-1');
+  </script>
+
+
+<script src="/assets/vendor-130c9c254effc51f3283620bc635851da7b99c20901216948f11ba72ee13317f.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-cfde13ac81ddaf4351b2e739603e2baf688d0fcc9aba613fe62bbb1c7b037fb9.js" type="text/javascript"></script>
+
+
+</body>
+</html>
