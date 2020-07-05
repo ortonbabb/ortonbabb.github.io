@@ -2,15 +2,15 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/tag/philosophy/</loc>
-<lastmod>2020-07-04T00:54:38-04:00</lastmod>
+<lastmod>2020-07-05T04:20:49-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/tag/python/</loc>
-<lastmod>2020-07-04T00:54:38-04:00</lastmod>
+<lastmod>2020-07-05T04:20:49-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/tag/self-help/</loc>
-<lastmod>2020-07-04T00:54:38-04:00</lastmod>
+<lastmod>2020-07-05T04:20:49-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/posts/why-i-declutter-my-devices-weekly</loc>
@@ -27,6 +27,10 @@
 <url>
 <loc>http://localhost:4000/posts/in-defense-of-boredom</loc>
 <lastmod>2020-07-03T00:00:00-04:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/posts/calculating-the-odds-of-job-application-callbacks</loc>
+<lastmod>2020-07-05T00:00:00-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about</loc>
@@ -47,6 +51,10 @@
 <url>
 <loc>http://localhost:4000/docs/Isometrically_reconstructing_data_using_the_Diffusion_Maps_Laplacian.pdf</loc>
 <lastmod>2020-07-02T20:25:20-04:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/docs/dataviz/numberofcallbacks.html</loc>
+<lastmod>2020-07-05T03:55:16-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/docs/symposiums/SymposiumFall17.pdf</loc>
