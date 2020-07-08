@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ob | Automating Cover Letters</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Automating Cover Letters">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/posts/streamlining-tailored-cover-letters">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="ob">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://localhost:4000/posts/streamlining-tailored-cover-letters">
+  <meta name="twitter:title" content="Automating Cover Letters">
+  <meta name="twitter:description" content="">
+
+  
+    <meta property="og:image" content="http://localhost:4000/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+    <meta name="twitter:image" content="http://localhost:4000/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+  
+
+  <link href="http://localhost:4000/feed.xml" type="application/rss+xml" rel="alternate" title="ob Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-light-0c617fed9217b26b776666ff7cca84b878cefc26981c2ccf9b559c5df26270cb.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-light-f0c4a3f9ce31fe7c139badc5426f019853e3a43e6a389fcde1c6bb3bb7b2be9f.png">
+      <link rel="stylesheet" type="text/css" href="/assets/light-bb1553a18d0f1ccfe1aabc010584c49b4277a88503216b78906ba719e30019c1.css">
+    
+
+  
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="ob">ob</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/ortonbabb" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/ortonbabb" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:ortonbabb@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+  </ul>
+</nav>
+
+
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Automating Cover Letters</h1>
+            <p></p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    July 6, 2020
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      6 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/python" title="See all posts with tag 'Python'">Python</a>
+    
+      
+      <a href="/tag/latex" title="See all posts with tag 'LaTeX'">LaTeX</a>
+    
+      
+      <a href="/tag/career" title="See all posts with tag 'Career'">Career</a>
+    
+  </div>
+</div>
+          </header>
+
+          <div class="article-content">
+            <p>In the job search process, one inevitably has to produce application materials, including a custom cover letter, and keep them organized. We can use a Python along with a cover letter template (typset in LaTeX) to automatically produce folders and the necessary documents. Our goal will be to construct a directory with the following structure:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+│ coverLetterTemplate.tex
+│ addJob.py
+└───── Company - Job Title 1
+│      Cover Letter.tex
+│      Cover Letter.pdf
+└───── Company - Job Title 2
+       Cover Letter.tex
+       Cover Letter.pdf
+⋮
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="using-a-latex-cover-letter-template">Using a LaTeX cover letter template</h1>
+
+<p>To auto-generate documents, I used a combination of Python and a LaTeX cover letter template created by <a href="https://www.overleaf.com/latex/templates/job-application-cover-letter/ztmbjxjcwhqd">Gregor Taube</a> stored as <code class="highlighter-rouge">coverLetterTemplate.tex</code>. While there are more sophisticated packages available, the most simple method is using Template module from the <code class="highlighter-rouge">string</code> package. We take user inputs from the command line. Templates support “$”-based substitutions, but since “$” is reserved in LaTeX for typesetting math, we’ll use “»”. This way we can tailor the cover letter to each job by substituting over the tags.</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[11pt,a4paper,roman]</span><span class="p">{</span>moderncv<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[english]</span><span class="p">{</span>babel<span class="p">}</span>
+
+<span class="k">\moderncvstyle</span><span class="p">{</span>classic<span class="p">}</span>
+<span class="k">\moderncvcolor</span><span class="p">{</span>green<span class="p">}</span>
+
+<span class="c">% character encoding</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="p">{</span>inputenc<span class="p">}</span>
+
+<span class="c">% adjust the page margins</span>
+<span class="k">\usepackage</span><span class="na">[scale=0.75]</span><span class="p">{</span>geometry<span class="p">}</span>
+
+<span class="c">% personal data</span>
+<span class="k">\name</span><span class="p">{</span>Orton<span class="p">}{</span>Babb<span class="p">}</span>
+
+<span class="k">\phone</span><span class="na">[mobile]</span><span class="p">{</span>999-9999<span class="p">}</span>
+<span class="k">\email</span><span class="p">{</span>ortonbabb@gmail.com<span class="p">}</span>
+
+<span class="nt">\begin{document}</span>
+
+<span class="k">\recipient</span><span class="p">{</span>To<span class="p">}{</span>&gt;&gt;employer<span class="p">}</span>
+<span class="k">\date</span><span class="p">{</span><span class="k">\today</span><span class="p">}</span>
+<span class="k">\opening</span><span class="p">{</span>Hi!<span class="p">}</span>
+<span class="k">\closing</span><span class="p">{</span>Thanks in advance!<span class="p">}</span>
+<span class="k">\enclosure</span><span class="na">[Attachment]</span><span class="p">{</span>Résumé<span class="p">}</span>
+<span class="k">\makelettertitle</span>
+
+
+<span class="c">% The first paragraph of your job application letter should include information on why you are writing. Mention the job you are applying for and where you found the position. If you have a contact at the company, mention the person's name and your connection here.</span>
+
+I want to introduce myself as a candidate for the &gt;&gt;position position. The firms’s mission to &gt;&gt;mission resonates with me. I am a recent graduate with a major in mathematics, minor in computer science and a motivation to &gt;&gt;role. Given this background, I am excited to apply to the &gt;&gt;positionalt position to &gt;&gt;jobdescription.
+
+<span class="c">% The next section of your cover letter should describe what you have to offer the company. Make strong connections between your abilities and the requirements listed in the job posting. Mention specifically how your skills and experience match the job. Expand on the information in your resume, don't just repeat it.</span>
+
+<span class="c">% Try to support each statement you make with a piece of evidence. Use several shorter paragraphs or bullets rather than one large block of text, which can be difficult to read and absorb quickly.</span>
+
+You look for a person with &gt;&gt;abilities, I am certainly such a person, and can support the claim with several examples
+<span class="nt">\begin{itemize}</span>
+&gt;&gt;justifications
+<span class="nt">\end{itemize}</span>
+
+<span class="c">% Conclude your application letter by thanking the employer for considering you for the position. Include information on how you will follow-up. State that you will do so and indicate when (one week's time is typical). You may want to reduce the time between sending out your resume and follow up if you fax or email it.</span>
+
+I look forward to hearing from you. Please do not hesitate contacting me if you have any questions.
+
+<span class="k">\vspace</span><span class="p">{</span>0.5cm<span class="p">}</span>
+
+
+<span class="k">\makeletterclosing</span>
+
+<span class="nt">\end{document}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>This is how the template looks when compiled with <code class="highlighter-rouge">pdflatex</code>:</p>
+
+<center>
+<div class="embed-responsive">
+<embed src="/docs/coverLetterTemplate.pdf" width="500" height="375" />
+</div>
+</center>
+
+<p><br /></p>
+
+<h1 id="formatting-the-cover-letter-template">Formatting the cover letter template</h1>
+
+<p>Next we’ll need to create a Python script, call it <code class="highlighter-rouge">addJob.py</code>, to make the substitutions from the terminal. To keep it simple, we use the <code class="highlighter-rouge">os</code> package to also take care of creating the folder to store the results and make a system call to <code class="highlighter-rouge">pdflatex</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Create a new class with the "&gt;&gt;" delimiter to avoid conflicts with LaTeX
+</span><span class="k">class</span> <span class="nc">LaTeXTemplate</span><span class="p">(</span><span class="n">Template</span><span class="p">):</span>
+    <span class="n">delimiter</span> <span class="o">=</span> <span class="s">'&gt;&gt;'</span>
+
+<span class="c1"># Read in the template
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'coverLetterTemplate.tex'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">coverLetterTemplate</span> <span class="o">=</span> <span class="n">LaTeXTemplate</span><span class="p">(</span><span class="nb">file</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># Get the inputs to make substitutions in the template
+</span>
+<span class="c1">#   first paragraph
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Employer: '</span><span class="p">);</span> <span class="n">employer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Position: '</span><span class="p">);</span> <span class="n">position</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Mission e.g. 'help alleviate poverty across the globe':"</span><span class="p">);</span> <span class="n">mission</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Role e.g. 'study consumer spending habits': "</span><span class="p">);</span> <span class="n">role</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Alternate position description:'</span><span class="p">);</span> <span class="n">positionalt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Job description? Give more details, e.g. 'support senior analysts with data collection, pre-procession and analysis': "</span><span class="p">);</span> <span class="n">jobdescription</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1">#   second paragraph
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Abilities e.g. 'the ability to do x, y, z'"</span><span class="p">);</span> <span class="n">abilities</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="n">justifications</span> <span class="o">=</span> <span class="s">""</span>
+<span class="c1">#       loop until enough justification are added
+</span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Enter justification:"</span><span class="p">);</span> <span class="n">justification</span> <span class="o">=</span> <span class="nb">input</span><span class="p">();</span>
+    <span class="k">if</span> <span class="n">justification</span> <span class="o">==</span> <span class="s">"quit"</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">justifications</span><span class="o">+=</span> <span class="s">"\item "</span> <span class="o">+</span> <span class="n">justification</span> <span class="o">+</span>  <span class="s">"</span><span class="se">\n</span><span class="s">"</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Apply the substitutions
+</span><span class="n">coverLetter</span> <span class="o">=</span> <span class="n">coverLetterTemplate</span><span class="p">.</span><span class="n">substitute</span><span class="p">(</span> <span class="n">employer</span> <span class="o">=</span> <span class="n">employer</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">position</span><span class="p">,</span> <span class="n">mission</span> <span class="o">=</span> <span class="n">mission</span><span class="p">,</span> <span class="n">role</span> <span class="o">=</span> <span class="n">role</span><span class="p">,</span> <span class="n">positionalt</span> <span class="o">=</span> <span class="n">positionalt</span><span class="p">,</span> <span class="n">jobdescription</span> <span class="o">=</span> <span class="n">jobdescription</span><span class="p">,</span> <span class="n">abilities</span> <span class="o">=</span> <span class="n">abilities</span><span class="p">,</span> <span class="n">justifications</span> <span class="o">=</span> <span class="n">justifications</span><span class="p">)</span>
+
+<span class="c1"># Create a directory and store the results
+</span><span class="n">fname</span> <span class="o">=</span> <span class="s">f"</span><span class="si">{</span><span class="n">employer</span><span class="si">}</span><span class="s"> - </span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s">"</span>
+
+<span class="n">os</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">fname</span><span class="p">);</span> <span class="n">os</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">f"</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s">.tex"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+  <span class="nb">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">coverLetter</span><span class="p">)</span>
+
+<span class="c1"># Compile the LaTeX code
+</span><span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">f"pdflatex '</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s">.tex'"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>From the terminal, if I want to add a new job, I can just <code class="highlighter-rouge">cd</code> into the directory where the files are. Here’s what the transcription looks like for a fictional corporation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ortonbabb$ python formatting.py
+Employer:
+Awesome Inc  
+
+
+Position:
+Analyst
+
+
+Mission e.g. 'help alleviate poverty across the globe':
+save the world
+
+
+Role e.g. 'study consumer spending habits':
+analyze trends in developing economies
+
+
+Alternate position description:
+programmer analyst
+
+
+Job description? Give more details, e.g. 'support senior analysts with data collection, pre-procession and analysis':
+test software, ensure data quality and produce visualizations
+
+
+Abilities e.g. 'the ability to do x, y, z'
+Python programming and report writing skills
+
+
+Enter justification:
+I have produced and maintained a large, complex codebase as an intern
+
+
+Enter justification:
+In order to communicate my results, I have produced award winning presentations and reports, which I would be able to provide for Awesome Inc's biennial workshops
+
+
+Enter justification:
+quit
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Awesome Inc - Analyst.tex
+⋮
+</code></pre></div></div>
+<p><br /></p>
+
+<h1 id="voilà">Voilà!</h1>
+
+<p>From here, <code class="highlighter-rouge">pdflatex</code> will do some stuff and create the final output in PDF form. Here’s what that looks like:</p>
+
+<center>
+<div class="embed-responsive">
+<embed src="/docs/Awesome Inc - Analyst.pdf" width="500" height="375" />
+</div>
+</center>
+
+<p><br /></p>
+
+<p>We can always go back and brush up on what was produced, then recompile, but for this imaginary example, I think I would follow up with this candidate!</p>
+
+          </div>
+          <!-- <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Automating+Cover+Letters%20-%20http://localhost:4000/posts/streamlining-tailored-cover-letters" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/streamlining-tailored-cover-letters" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div> -->
+
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    <center>
+    ✸
+    </center>
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162096735-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-162096735-1');
+  </script>
+
+
+<script src="/assets/vendor-130c9c254effc51f3283620bc635851da7b99c20901216948f11ba72ee13317f.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-cfde13ac81ddaf4351b2e739603e2baf688d0fcc9aba613fe62bbb1c7b037fb9.js" type="text/javascript"></script>
+
+
+</body>
+</html>
