@@ -141,7 +141,7 @@
           </header>
 
           <div class="article-content">
-            <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="/docs/dataviz/numberofcallbacks.html" height="400" width="100%"></iframe>
+            <p>In this post, I try to give a data-driven answer to the question of how many job applications one would need to send to get a virtual guarantee of a job offer.</p>
 
 <h1 id="background">Background</h1>
 
@@ -149,7 +149,7 @@
 
 <h1 id="code">Code</h1>
 
-<p>We can use these values to answer the question of <strong>how many job applications must one complete to guarantee an offer?</strong> As always, I am using Python to do this, so first, let’s import the necessary libraries.</p>
+<p>We can use these values to answer the question. As always, I am using Python to do this, so first, let’s import the necessary libraries.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="n">px</span>
@@ -164,12 +164,13 @@ and probability of success of 3%.</p>
 <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">numApplications</span><span class="p">,</span> <span class="n">callBackRate</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The histogram above was made with plot.ly,</p>
+<p>We can plot a histogram with plot.ly,</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="p">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="s">'Number of Callbacks'</span><span class="p">},</span> <span class="n">histnorm</span><span class="o">=</span><span class="s">'probability density'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">"PMF Given 200 Job Apps with 3% Callback Rate"</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">pio</span><span class="p">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="s">'numberofcallbacks.html'</span><span class="p">,</span><span class="n">auto_open</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </code></pre></div></div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="/docs/dataviz/numberofcallbacks.html" height="400" width="100%"></iframe>
 
 <p>Suppose you think you need to interview at least 4 times to get at least one solid offer. We can calculate the odds of getting at least 4 or more callbacks.</p>
 
