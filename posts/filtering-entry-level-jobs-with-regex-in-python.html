@@ -140,65 +140,14 @@
 
 <p>Testing the filter was complicated by the fact that since I had already seen the jobs when labelling, I can’t test the filter on jobs that I haven’t seen (thereby introducing bias).</p>
 
-<p>Since the labelling of job posts as entry-level or not was labor intensive I used pickle files to store intermediate versions of the labelled data.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">re</span>
-</code></pre></div></div>
-
-<p>When I start a session, I reload the jobs back into the namespace.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'dataLabelerVars.pickle'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">datajobs</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>The variable <code class="highlighter-rouge">datajobs</code> is a pandas DataFrame containing information like job description, title, location, etc.</p>
-
-<p>Here I am checking how well represented entry-level jobs are in the data set. We can take this to be an estimate of the actual frequency. We can also use bootstrapping methods to put a confidence interval on the estimate (which I did not do here).</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">f"Actually entry level jobs make up </span><span class="si">{</span><span class="n">datajobs</span><span class="p">[</span><span class="n">datajobs</span><span class="p">.</span><span class="n">entry_level_q</span> <span class="o">==</span> <span class="mi">1</span><span class="p">].</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">datajobs</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="si">}</span><span class="s">% of the data set"</span>
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">’Actually entry level jobs make up  25% of the data set’</code></p>
+<p>I checked how well represented entry-level jobs are in the data set. Actually entry level jobs made up 25% of the data set. We can take this to be an estimate of the actual frequency. We can also use bootstrapping methods to put a confidence interval on the estimate (which I did not do here).</p>
 
 <p>What’s important is that we could imagine a filter that would just assign everything as not entry-level and <strong>it would be accurate roughly 75% of the time</strong>. For our filter to be worth its salt, it has to beat this value.</p>
 
-<p>Here are the regular expressions, I used to represent the common disqualifiers for entry-level status.</p>
+<p>Here are the regular expressions, I used to represent the common disqualifiers for entry-level status:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">title_exclusions</span> <span class="o">=</span> <span class="p">[</span><span class="s">r"I{2,3}|IV"</span><span class="p">,</span> \
-                    <span class="s">r"[sS]enior"</span><span class="p">,</span> \
-                    <span class="s">r"[sS]r\.*"</span><span class="p">,</span> \
-                    <span class="s">r"[lL]ead"</span><span class="p">,</span> \
-                    <span class="s">r"[dD]irector"</span><span class="p">,</span> \
-                    <span class="s">r"[Pp]rincipal"</span><span class="p">,</span> \
-                    <span class="s">r"[mM]anage"</span><span class="p">,</span> \
-                    <span class="s">r"[eE]xperienced"</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">description_exclusions</span> <span class="o">=</span> <span class="p">[</span><span class="s">r"(?:[mM]inimum|[mM]in\.?|[aA]t least|[tT]otal|[iI]ncluding|[wW]ith).+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\+* (?:[yY]ears*|[yY]rs*)"</span><span class="p">,</span> \
-                         <span class="s">r"[mM]aster'?s"</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p>Here is where I tested matching on these regex’s.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">datajobs</span><span class="p">[</span><span class="s">"TestQ"</span><span class="p">]</span> <span class="o">=</span>  <span class="bp">None</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">datajobs</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">titleQ</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">title_pattern</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">job_title</span><span class="p">)</span>
-    <span class="n">descriptionQ</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">description_pattern</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">job_description</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">titleQ</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">descriptionQ</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">):</span>
-        <span class="n">datajobs</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s">"TestQ"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">datajobs</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s">"TestQ"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre></div></div>
-
-<p>To test the accuracy, I compared the predicted with the actual.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">datajobs</span><span class="p">[</span><span class="s">"entry_level_q"</span><span class="p">]</span> <span class="o">==</span> <span class="n">datajobs</span><span class="p">[</span><span class="s">"TestQ"</span><span class="p">]).</span><span class="nb">sum</span><span class="p">()</span><span class="o">/</span><span class="n">datajobs</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p>In effect, since it works we can create a function to this work for us.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">def</span> <span class="nf">predict_entry_level</span><span class="p">(</span><span class="n">job_title</span><span class="p">,</span> <span class="n">job_description</span><span class="p">):</span>
   <span class="n">title_pattern</span> <span class="o">=</span> <span class="s">r"I{2,3}|IV|[sS]enior|[sS]r\.*|[lL]ead|[dD]irector|[Pp]rincipal|[mM]anage|[eE]xperienced"</span>
 
@@ -207,10 +156,35 @@
     <span class="n">titleQ</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">title_pattern</span><span class="p">,</span> <span class="n">job_title</span><span class="p">)</span>
     <span class="n">descriptionQ</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">description_pattern</span><span class="p">,</span> <span class="n">job_description</span><span class="p">)</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">titleQ</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">descriptionQ</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="mi">0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="mi">1</span>
 </code></pre></div></div>
+<p><br /></p>
+
+<p>Since the labelling of job posts as entry-level or not was labor intensive I used pickle files (<code class="highlighter-rouge">dataLabelerVars.pickle</code>) to store intermediate versions of the labelled data. When I start a session, I reload the jobs back into the namespace. The variable <code class="highlighter-rouge">datajobs</code> is a pandas DataFrame containing information like job description, title, location, etc. There was also an index variable stores to pick up where I left off.</p>
+
+<p>One the labeling was finished, I could just load <code class="highlighter-rouge">datajobs</code> and apply the filter on each job for the test:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'dataLabelerVars.pickle'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">datajobs</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">datajobs</span><span class="p">[</span><span class="s">"TestQ"</span><span class="p">]</span> <span class="o">=</span>  <span class="bp">None</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">datajobs</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">datajobs</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s">"TestQ"</span><span class="p">]</span> <span class="o">=</span> <span class="n">predict_entry_level</span><span class="p">(</span><span class="n">job_title</span><span class="p">,</span> <span class="n">job_description</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>To test the accuracy, I compared the predicted with the actual.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">datajobs</span><span class="p">[</span><span class="s">"entry_level_q"</span><span class="p">]</span> <span class="o">==</span> <span class="n">datajobs</span><span class="p">[</span><span class="s">"TestQ"</span><span class="p">]).</span><span class="nb">sum</span><span class="p">()</span><span class="o">/</span><span class="n">datajobs</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>I was able to get an accuracy rate of &gt;85% with this method. That’s should be high enough to be useful for me!</p>
 
           </div>
           <!-- <div class="article-share">
